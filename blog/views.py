@@ -8,8 +8,10 @@ def blog_home(request):
 
 def blog_archive(request):
     posts = Blog_post.objects.order_by("-date")
-    return render(request, "blog/blog_archive.html", {"posts":posts})
+    dropdownPosts = Blog_post.objects.order_by("-date")[:5]
+    return render(request, "blog/blog_archive.html", {"posts": posts, "dropdownPosts": dropdownPosts})
 
 def post(request, post_id):
     post = get_object_or_404(Blog_post, pk=post_id)
-    return render(request, "blog/post.html", {"post": post})
+    dropdownPosts = Blog_post.objects.order_by("-date")[:5]
+    return render(request, "blog/post.html", {"post": post, "dropdownPosts": dropdownPosts})

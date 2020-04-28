@@ -1,0 +1,16 @@
+.custom-navbar-link{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+a .custom-navbar-link{
+    color: white;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}

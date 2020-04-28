@@ -10,8 +10,9 @@ urlpatterns = [
     path("home/", views.home, name="home"),
     path("", views.home, name="home"),
     path('blog/', include('blog.urls')),
-    path("portfolio_archive", views.portfolio_archive, name="portfolio_archive"),
+    path("portfolio_archive/", views.portfolio_archive, name="portfolio_archive"),
     path("<int:project_id>/", views.project, name="project"),
+    path("bio/", views.bio, name="bio"),
 
 ]
 
