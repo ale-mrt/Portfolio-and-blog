@@ -2,6 +2,7 @@ from django.db import models
 import uuid
 from datetime import datetime
 
+# modello del progetto da convertire in query per il database
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=250)

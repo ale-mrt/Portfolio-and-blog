@@ -5,6 +5,7 @@ from django.conf import settings
 
 from portfolio import views
 
+# collezione degli url raggiungibili nell'app, collegati alle views delle singole app
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("home/", views.home, name="home"),

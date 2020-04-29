@@ -16,15 +16,13 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# chiave di accesso per l'amministrazione del server
 SECRET_KEY = 'o48nvuuv5*3$z_l5nh_&uk-fjf4b@4l3c&wvq0vui#80s%(f&t'
 
 # questa opzione consente a django di scrivere su una pagina eventuali errori
 DEBUG = True
 
+# host ai quali è consentito ospitare il sito
 ALLOWED_HOSTS = ["localhost"]
 
 
@@ -95,8 +93,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.0/topics/i18n/
+# Internationalizzazione
 
 LANGUAGE_CODE = 'en-us'
 
@@ -109,8 +106,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
+# posizione della cartella static, dove vengono salvati i file comuni a tutto il progetto
 
 STATIC_URL = '/static/'
 
