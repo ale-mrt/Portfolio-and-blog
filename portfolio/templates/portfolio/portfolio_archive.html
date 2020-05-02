@@ -1,5 +1,49 @@
 {% extends 'portfolio/portfolio_base.html' %}
 
 {% block content %}
+                    <div class="dropdown-menu text-dark">
+                        {% for project in dropdownProjects %}
+                            <a class="dropdown-item" href="{% url 'project' project.id %}">{{ project.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            <a href="{% url 'portfolio_archive' %}" class="btn" role="button">Archive</a>
+        </div>
+        <a href="{% url 'blog:blog_home' %}" class="btn" role="button">Blog</a>
+    </div>
+</nav>
 
+<h2 class="display-3 text-center">Portfolio archive</h2>
+<table class="table table-responsive-sm table-hover table-striped">
+    <thead class="thead-secondary">
+        <th>
+             
+        </th>
+        <th>
+            Project title
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Date added
+        </th>
+        <th>
+            Link
+        </th>
+    </thead>
+    <tbody>
+        {% for project in projects %}
+        <tr>
+            <td>
+                <img src="{{ project.image.url }}" class="img-fluid" id="archive">
+            </td>
+            <td><a href="{% url 'project' project.id %}">{{ project.title }}</a></td>
+            <td>{{ project.description }}</td>
+            <td>{{ project.date }}</td>
+            <td><a href="{{ project.url }}" target="blank">{{ project.url }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

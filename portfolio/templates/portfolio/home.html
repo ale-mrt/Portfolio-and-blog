@@ -2,4 +2,45 @@
 
 {% block content %}
 
+                <div class="dropdown-menu text-dark">
+                    {% for project in dropdownProjects %}
+                    <a class="dropdown-item" href="{% url 'project' project.id %}">{{ project.title }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <a href="{% url 'portfolio_archive' %}" class="btn" role="button">Archive</a>
+        </div>
+        <a href="{% url 'blog:blog_home' %}" class="btn" role="button">Blog</a>
+    </div>
+</nav>
+
+
+<div class="container text-center>">
+    <h2 class="display-2 m-4 text-center">Project highlights</h2>
+    <div class="card-deck m-4">
+        {% for project in projects|slice:":3" %}
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="{{ project.image.url }}" id="portfolio" class="img-fluid">
+                    <a href="{% url 'project' project.id %}"><h3 class="card-title text-center text-dark">{{ project.title }}</h3></a>
+                    <p class="card-text">{{ project.description }}</p>
+                    <p class="card-text">Date added: {{ project.date }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="card-deck m-4">
+        {% for project in projects|slice:"3:" %}
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="{{ project.image.url }}" id="portfolio" class="img-fluid card-img-top">
+                    <a href="{% url 'project' project.id %}"><h3 class="card-title text-center text-dark">{{ project.title }}</h3></a>
+                    <p class="card-text">{{ project.description }}</p>
+                    <p class="card-text ">Date added: {{ project.date }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}

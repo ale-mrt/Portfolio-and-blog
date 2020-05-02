@@ -1,5 +1,21 @@
 {% extends 'blog/blog_base.html' %}
 
 {% block content %}
+                    {% for post in dropdownPosts %}
+                        <a class="dropdown-item" href="{% url 'blog:post' post.id %}">{{ post.title }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <a href="{% url 'blog:blog_archive' %}" class="btn text-white" role="button">Archive</a>
+        </div>
+        <a href="{% url 'home' %}" class="btn text-white" role="button">Portfolio</a>
+    </div>
+</nav>
 
+<div class="container-fluid text-center p-4">
+    <h2 class="display-3 md-4 p-4">{{ post.title }}</h2>
+    <p>{{ post.date }}</p>
+    <img src="{{ post.image.url }}" class="img-fluid">
+    <p class="text-justify">{{ post.text }}</p>
+</div>
 {% endblock %}

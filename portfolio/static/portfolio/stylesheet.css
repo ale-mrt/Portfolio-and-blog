@@ -1,16 +1,31 @@
-.custom-navbar-link{
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-}
-
-a .custom-navbar-link{
-    color: white;
-}
-
-a:link{
-    text-decoration: none;
-}
-
-a:hover{
+a.btn:hover{
     text-decoration: underline;
+}
+
+img#portfolio{
+    max-height: 100px;
+    width: auto;
+}
+
+img#archive{
+    max-height: 50px;
+    width: auto;
+}
+
+img#mainPost{
+    max-height: 500px;
+    width: auto;
+}
+
+img#secPost{
+    max-height: auto;
+    width: 100px;
+}
+
+div#blogPost:hover{
+    background-color: antiquewhite;
+}
+
+p.post_preview:hover{
+    text-decoration: none;
 }

@@ -7,48 +7,58 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <!-- place metas here -->
         <link rel="stylesheet" type="text/css" href="{% static 'portfolio/stylesheet.css' %}">
-        <meta name="description" content="Alessandro Murtas personal website - homepage">
+        <meta name="description" content="Alessandro Murtas personal website - blog homepage">
         <meta name="keywords" content="Alessandro Murtas, programming, Django, HTML, CSS, Bootstrap">
         <meta name="author" content="Alessandro Murtas">
         <title>Alessandro Murtas - Blog</title>
-    </head>
-    <body>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </head>
+    <body>
         <!-- place divs here -->
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-primary">
-            <h1><a href="{% url 'home' %}" class="navbar-brand text-white">Alessandro Murtas</a></h1>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ml-auto">
-                    <div class="dropdown">
-                            
-                        <button class="btn dropdown-toggle bg-primary text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+            <div class="mr-auto">
+                <a href="{% url 'blog:blog_home' %}" class="navbar-brand text-white">Alessandro Murtas</a>
+            </div>
+            <div class="ml-auto">
+                <a href="{% url 'bio' %}" class="btn text-white" role="button">Bio</a>
+                <div class="btn-group btn-group-expand-sm p-2">
+                    <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle text-white" data-toggle="dropdown">
                             Latest posts
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            {% if dropdownPosts.count == 0 %}
-                                <a class="dropdown-item">No projects to show</a>
-                            {% endif %}
-                            {% for post in dropdownPosts %}
-                                <a class="dropdown-item" href="{% url 'blog:post' post.id %}">{{ post.title }}</a>
-                            {% endfor %}
+                        <div class="dropdown-menu">
+                            
+        {% block content %}
+        
+        {% endblock %}
+        <div class="footer bg-dark p-4">
+            <div class="row">
+                <div class="col">
+                    <div class="container mr-auto">
+                        <div class="btn-group-vertical">
+                            <a href="https://www.facebook.com" class="btn text-white text-left" role="button" target="_blank">
+                                <img src="{% static 'portfolio/facebook.png' %}" alt="facebook_logo" width="40" height="40">Facebook</a>
+                            <a href="https://www.twitter.com" class="btn text-white text-left" role="button" target="_blank">
+                                <img src="{% static 'portfolio/twitter.png' %}" alt="twitter_logo" width="40" height="40">Twitter</a>
+                            <a href="https://www.instagram.com" class="btn text-white text-left" role="button" target="_blank">
+                                <img src="{% static 'portfolio/instagram.png' %}" alt="instagram_logo" width="40" height="40">Instagram</a>
                         </div>
                     </div>
-                    <h2 class="custom-navbar-link"><a href="{% url 'bio' %}">Bio</a></h2>
-                    <h2 class="custom-navbar-link"><a href="{% url 'blog:blog_archive' %}">Blog archive</a></h2>
-                    <h2 class="custom-navbar-link"><a href="{% url 'home' %}">Portfolio</a></h2>
+                </div>
+                <div class="col-8">
+                    <div class="container ml-auto">
+                        <p class="text-white text-justify">
+                            <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. <b>Lorem ipsum dolor sit amet, consectetur adipiscing elit</b>. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                            </i>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </nav>
-        {% block content %}
-
-        {% endblock %}
-        <footer>
-
-        </footer>
+            <div class="footer-copyright text-center py-3 text-secondary">
+                © Alessandro Murtas 2020
+            </div>
+        </div>
     </body>
 </html>
